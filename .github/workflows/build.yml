@@ -35,7 +35,7 @@ jobs:
         with:
           name: artifact_dist
           path: dist
-      - name: Push to production branch
+      - name: Push to production branch 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
