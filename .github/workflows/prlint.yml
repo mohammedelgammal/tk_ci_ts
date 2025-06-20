@@ -1,0 +1,11 @@
+name: Pull Request Validation
+on: pull_request
+
+jobs:
+  prlint:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Validate Pull Request
+        uses: amannn/action-semantic-pull-request@v5
