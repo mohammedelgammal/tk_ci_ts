@@ -46,7 +46,7 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git pull origin main-production_ready
           git add dist
-          git commit -m "chore(release): update production assets [v${{ github.ref_name}}] [build-${{ github.run_id }}]"
+          git commit -m "chore(release): update production entrypoint and assets [v${{ github.ref_name}}] [build-${{ github.run_id }}]"
           git push
       - name: Tag Release
         run: |
