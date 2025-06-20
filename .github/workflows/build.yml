@@ -5,7 +5,7 @@ on:
     types: [released]
   push:
     branches: [main]
-  workflow_call: # enables manual trigger
+  workflow_call:
 
 jobs:
   build:
