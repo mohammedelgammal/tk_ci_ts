@@ -1,0 +1,188 @@
+.introContainer {
+  margin-top: 172px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .title {
+    // font-family: PingFang SC;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 58px;
+    text-align: center;
+    width: 100%;
+  }
+  .subTitle {
+    margin-top: 16px;
+    // font-family: PingFang SC;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 20px;
+    opacity: 0.6;
+    width: 100%;
+    text-align: center;
+  }
+  .introList {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-rows: 1;
+    justify-content: center !important;
+    gap: 14px;
+    width: 100%;
+    .introItem {
+      transition: transform 0.4s ease-in-out;
+      position: relative;
+      padding: 40px 10px 30px;
+      flex-shrink: 0;
+      display: flex;
+      border: 1px solid transparent;
+      // justify-content: center;
+      flex-direction: column;
+      // justify-content: space-around;
+      align-items: center;
+      border-radius: 12px;
+      cursor: default;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+      background: linear-gradient(
+        180deg,
+        rgba(3, 170, 199, 0.06) 0%,
+        rgba(3, 170, 199, 0.02) 92.34%
+      );
+
+      .imageList {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 30px;
+        position: relative;
+        :nth-child(1) {
+          position: absolute;
+          z-index: 1;
+        }
+        :nth-child(2) {
+          position: absolute;
+          left: 5px;
+        }
+        :nth-child(3) {
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 2;
+          position: absolute;
+        }
+        :nth-child(4) {
+          z-index: 1;
+          top: -25%;
+          left: -20%;
+          position: absolute;
+        }
+      }
+      .introItemTitle {
+        width: 100%;
+        color: #fff;
+        text-align: center;
+        // font-family: PingFang SC;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 125% */
+      }
+      .introInfo {
+        position: relative;
+        color: #fff;
+        text-align: center;
+        width: 100%;
+        // font-family: PingFang SC;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 300;
+        opacity: 0.6;
+        line-height: 16px; /* 133.333% */
+      }
+    }
+
+    .introItem:hover {
+      border-radius: 12px;
+      scale: 101%;
+      border: 1px solid rgba(0, 182, 219, 0.6);
+      background: linear-gradient(180deg, #000a0c 0%, #000304 92.34%);
+      box-shadow:
+        0px -6px 40px -20px rgba(0, 182, 219, 0.8),
+        0px -30px 60px -20px rgba(0, 182, 219, 0.4);
+    }
+    /* 上边框阴影中的小白点 */
+    .introItem:hover::before {
+      content: "";
+      position: absolute;
+      top: -30px; /* 让图片正好处于上边阴影区域 */
+      left: 0;
+      width: 100%;
+      height: 40px; /* 让图片仅覆盖阴影部分 */
+      background-image: url("@/assets/image/dian.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      pointer-events: none; /* 避免影响鼠标交互 */
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .introContainer {
+    padding: 0;
+    margin-top: 76px;
+
+    .title {
+      font-size: 20px;
+      line-height: 36px;
+      text-align: center;
+    }
+
+    .subTitle {
+      font-size: 16px;
+      text-align: center;
+      line-height: 24px;
+      color: #babbbc;
+    }
+
+    .introList {
+      grid-template: auto auto / auto auto;
+      gap: 16px;
+      margin-top: 24px;
+
+      .introItem {
+        padding: 30px 4px;
+        .imageList {
+          width: 38px;
+          height: 38px;
+          margin-bottom: 12px;
+          :nth-child(2) {
+            left: 3px;
+          }
+
+          :nth-child(3) {
+            left: 40%;
+            top: 40%;
+            transform: translate(-50%, -50%);
+            scale: 0.7;
+            z-index: 2;
+            position: absolute;
+          }
+        }
+        .introItemTitle {
+          font-size: 14px;
+        }
+
+        .introInfo {
+          width: unset;
+        }
+      }
+    }
+  }
+}

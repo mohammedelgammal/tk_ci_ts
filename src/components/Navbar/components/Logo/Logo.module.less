@@ -1,0 +1,25 @@
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  cursor: pointer;
+
+  img {
+    height: 20px;
+  }
+
+  :first-child {
+    height: 30px;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .logoContainer {
+    gap: 0px;
+  }
+  .logoTitle,
+  .logoIcon {
+    scale: 0.8;
+  }
+}

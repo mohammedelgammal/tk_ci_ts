@@ -1,0 +1,128 @@
+.questionContainer {
+  width: 100%;
+  margin-top: 172px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // padding-top: 40px;
+  margin-bottom: 16px;
+  .questionTitle {
+    margin-bottom: 74px;
+    color: #fff;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 58px;
+  }
+}
+
+.accordionContainer {
+  // max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.accordionItem {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  .accordionHeader {
+    padding: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 24px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  padding: 0px 6px;
+  border-radius: 77px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  &.active {
+    background: #fff;
+    border: 1px solid #fff;
+  }
+}
+
+.accordionContent {
+  line-height: 28px;
+  color: rgba(255, 255, 255, 0.6);
+  white-space: pre-line;
+  font-size: 16px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0;
+  transform: translateY(-10px); /* 初始稍微上移一点 */
+  transition:
+    max-height 0.4s ease-in-out,
+    opacity 0.4s ease-in-out,
+    padding 0.4s ease-in-out,
+    transform 0.4s ease-in-out;
+}
+
+.accordionContent.active {
+  padding: 20px 0 40px 0; /* 添加 padding 让内容不突兀 */
+  max-height: 1000px; /* 确保足够大，不会截断内容 */
+  opacity: 1;
+  transform: translateY(0); /* 复位 */
+  font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .questionContainer {
+    margin-top: 64px;
+    padding: 0px;
+    // margin-bottom: 48px;
+
+    .questionTitle {
+      font-size: 20px;
+      line-height: 36px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+  }
+
+  .accordionItem {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    .accordionHeader {
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    .accordionContent {
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    .accordionContent.active {
+      padding: 8px 0 24px 0 !important;
+    }
+  }
+
+  .icon {
+    width: 16px !important;
+    height: 16px !important;
+    padding: 0 3px !important;
+  }
+}

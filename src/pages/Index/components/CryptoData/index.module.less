@@ -1,0 +1,484 @@
+@background-dark: #000;
+@panel-bg: #131313;
+@text-color: #fff;
+@text-muted: #888;
+@positive: #03aac7;
+@negative: #ea5455;
+@border-radius: 10px;
+
+@primary-color: #ffffff;
+@secondary-color: #888;
+@highlight-color: #ffffff;
+@underline-color: #ffffff;
+@inactive-color: #777;
+@tab-padding: 10px 20px;
+
+.tradeContainer {
+  margin-top: 172px;
+  color: @text-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .emblaCarousel {
+    display: none;
+    width: 100%;
+  }
+
+  .tradeTables {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    // display: none;
+  }
+
+  .laba {
+    // font-family: PingFang SC;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0%;
+    margin-left: 4px;
+  }
+  .labaBtn {
+    width: 130px;
+    height: 36px;
+    border-radius: 77px;
+    border: 1px solid;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    border-color: #ffffff1a;
+    align-items: center;
+    background-color: #ffffff0f;
+    // font-family: PingFang SC;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+  }
+  .title {
+    margin-bottom: 48px;
+  }
+}
+
+.title {
+  // font-family: PingFang SC;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 58px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.tradePanels {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 1200px;
+  justify-items: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.tradeTabs {
+  margin-top: 0;
+  padding: 16px 0px 32px;
+  // height: 530px;
+  // overflow-y: scroll;
+
+  :global {
+    .ant-tabs-nav {
+      padding: 0 20px;
+      &::before {
+        width: calc(100% - 40px);
+        bottom: -5px;
+        left: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+      }
+      .ant-tabs-tab-btn:active {
+        color: unset;
+      }
+      .ant-tabs-ink-bar {
+        height: 4px;
+        border-radius: 1px;
+      }
+    }
+    .ant-tabs-content {
+      // min-height: 450px;
+    }
+  }
+}
+.tradePanel {
+  flex: 1;
+  position: relative;
+  // height: 618px;
+  border-radius: 16px;
+  box-sizing: content-box;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(50px);
+  // border: 1px solid transparent;
+  &:hover {
+    cursor: pointer;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 182, 219, 0.6);
+    background: linear-gradient(180deg, #000a0c 0%, #000304 92.34%);
+    box-shadow:
+      0px -6px 40px -20px rgba(0, 182, 219, 0.8),
+      0px -30px 60px -20px rgba(0, 182, 219, 0.4);
+    background-image: url("@/assets/image/dian.png");
+    background-size: cover;
+  }
+}
+/* 上边框阴影中的小白点 */
+.tradePanel:hover::before {
+  content: "";
+  position: absolute;
+  top: -30px; /* 让图片正好处于上边阴影区域 */
+  left: 0;
+  width: 100%;
+  height: 40px; /* 让图片仅覆盖阴影部分 */
+  background-image: url("@/assets/image/dian.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none; /* 避免影响鼠标交互 */
+}
+
+.panelTitle {
+  // font-family: PingFang SC;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.tradeList {
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  padding: 0px -20px;
+  min-height: 440px;
+  overflow-y: auto;
+}
+
+.tradeItem {
+  display: flex;
+  align-items: center;
+
+  padding: 20px 20px;
+  color: #fff;
+  // height: 72px;
+  gap: 0px;
+  justify-content: space-between;
+  &:hover {
+    background: #1a1a1a;
+  }
+}
+
+.tradeHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0.6;
+  width: 743px;
+  height: 16px;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.headerCoin {
+  width: 190px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  img {
+    width: 28px;
+    height: 28px;
+  }
+}
+.headerPrice {
+  width: 198px;
+}
+
+.headerVolume {
+  width: 130px;
+}
+.headerChange {
+  width: 200px;
+}
+.headerButton {
+  visibility: hidden;
+}
+
+.tradeHeader > :nth-child(2) {
+  position: relative;
+  left: 20px;
+}
+
+.tradeHeader > :nth-child(3) {
+  position: relative;
+  left: 50px;
+}
+
+.tradeHeader > :nth-child(4) {
+  position: relative;
+  left: 65px;
+}
+
+.shortHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0.6;
+  // width: 437px;
+  height: 16px;
+  color: #fff;
+  padding: 0 20px;
+}
+.shortPrice {
+  width: 100px;
+}
+.shortChange {
+  width: 107px;
+}
+.coin {
+  flex: 1;
+  font-family: PingFang SC;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0%;
+}
+
+.change {
+  width: 130px;
+}
+
+.negative {
+  color: @negative;
+}
+
+.positive {
+  color: @positive;
+}
+
+.tradeButton {
+  border-radius: 77px;
+  width: 70px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  display: inline-flex;
+  height: 32px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  color: @text-color;
+  cursor: pointer;
+
+  transition: background 0.3s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.04);
+  }
+}
+.tradeArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin: 0 auto;
+  padding: 16px 0 24px 0;
+}
+
+.arrowBox {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 77px;
+  cursor: pointer;
+
+  &.disabled {
+    background: rgba(255, 255, 255, 0.2);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}
+.arrowLeftBox,
+.arrowRightBox {
+  .arrowBox(); // LESS mixin
+}
+
+.arrowContainer {
+  margin-top: 24px;
+}
+
+@media screen and (max-width: 1280px) {
+  .tradeContainer {
+    .emblaCarousel {
+      display: flex;
+    }
+    .tradeTables {
+      display: none;
+    }
+    .tradeHeader {
+      width: unset;
+    }
+    .headerPrice {
+      color: white;
+    }
+  }
+
+  .tradeHeader > :nth-child(2) {
+    position: relative;
+    left: 25px;
+  }
+
+  .tradeHeader > :nth-child(3) {
+    position: relative;
+    left: 45px;
+  }
+
+  .tradeHeader > :nth-child(4) {
+    position: relative;
+    left: 70px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tradeContainer {
+    // padding: 16px;
+    margin-top: 48px;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+  }
+
+  .title {
+    font-size: 20px;
+    line-height: 36px;
+    text-align: center;
+    margin-bottom: 24px !important;
+  }
+
+  .tradePanels {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .tradePanel {
+    width: 100%;
+    // max-width: 90%;
+    height: auto;
+    // padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+
+  .tradeList {
+    min-height: 368px;
+  }
+
+  .tradeHeader,
+  .shortHeader {
+    // width: 100% !important;
+    padding: 0 12px;
+    font-size: 12px;
+  }
+
+  .tradeItem {
+    padding: 14px 6px 14px 15px;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: space-between;
+  }
+
+  .tradeButton {
+    margin-top: 8px;
+  }
+  .headerCoin {
+    gap: 6px;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .headerCoin,
+  .headerPrice,
+  .headerVolume,
+  .headerChange,
+  .shortPrice,
+  .shortChange {
+    width: auto;
+    flex: 1;
+    font-size: 14px;
+  }
+  .headerButton {
+    display: none;
+  }
+
+  .tradeHeader > :nth-child(2) {
+    position: relative;
+    left: 5px;
+  }
+
+  .tradeHeader > :nth-child(4) {
+    position: relative;
+    left: 10px;
+  }
+
+  .headerVolume,
+  .tradeButton {
+    display: none;
+  }
+
+  .tradeArrow {
+    gap: 16px;
+    // margin-top: 16px;
+    padding: 16px 0;
+  }
+  .arrowRightBox,
+  .arrowLeftBox {
+    padding: 0 3px;
+  }
+  .headerCoin {
+    gap: 8px;
+  }
+
+  .tradeTabs {
+    padding: 16px 0;
+    :global {
+      .ant-tabs-content {
+        // min-height: 380px;
+      }
+    }
+  }
+  .arrowContainer {
+    margin-top: 16px;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .tradeHeader > :nth-child(4) {
+    position: relative;
+    left: unset;
+    right: 0;
+    text-align: center;
+  }
+
+  .shortChange {
+    position: relative;
+    right: 7%;
+    text-align: right;
+  }
+}

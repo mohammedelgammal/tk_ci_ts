@@ -1,0 +1,72 @@
+.notFoundContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notFoundContainer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../../assets/image/404.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 10;
+}
+
+.notFoundContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 42px;
+  /* general content styling */
+  text-align: center;
+  color: white;
+  z-index: 20;
+}
+
+.notFoundTitle {
+  font-size: 54px;
+  font-weight: 500;
+}
+
+.notFoundBody {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.notFoundCTA {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 13px 41px;
+  margin-top: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.notFoundCTA:hover {
+  scale: 1.04;
+}
+
+@media screen and (max-width: 768px) {
+  .notFoundContainer {
+    aspect-ratio: 1/1;
+  }
+
+  .notFoundContainer::before {
+    background-size: 300%;
+    background-position: center top;
+  }
+
+  .notFoundTitle {
+    font-size: 24px;
+  }
+
+  .notFoundCTA {
+    margin-top: 36px;
+  }
+}
