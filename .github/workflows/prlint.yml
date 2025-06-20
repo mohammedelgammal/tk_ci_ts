@@ -1,5 +1,8 @@
 name: Pull Request Validation
-on: pull_request
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
 
 jobs:
   prlint:
@@ -9,3 +12,5 @@ jobs:
     steps:
       - name: Validate Pull Request
         uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
