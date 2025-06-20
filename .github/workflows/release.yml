@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows: ["Pull Request Validation"]
     types:
-      - completed
+      - completed # upon completion
 
 jobs:
   gh-release:
