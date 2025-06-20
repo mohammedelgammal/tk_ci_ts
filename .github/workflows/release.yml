@@ -1,10 +1,8 @@
 name: Version Release
 
 on:
-  workflow_run:
-    workflows: ["Pull Request Validation"]
-    types:
-      - completed 
+  push:
+    branches: [main]
 
 jobs:
   gh-release:
