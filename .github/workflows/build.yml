@@ -1,11 +1,9 @@
 name: Build and Update Production Branch
 
 on:
-  release:
-    types: [released]
   push:
     branches: [main]
-  workflow_call: 
+  workflow_call:
 
 jobs:
   build:
@@ -42,8 +40,8 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git checkout main-production_ready
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          git checkout -b main-production_ready
           git pull origin main-production_ready
           git add dist
           git commit -m "Automated update: Updated dist folder ${{github.event.release.tag_name}}"
