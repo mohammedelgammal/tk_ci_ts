@@ -1,11 +1,18 @@
 name: Pull Request Validation
-on: pull_request
+on:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - reopened
 
 jobs:
   prlint:
     runs-on: ubuntu-latest
     permissions:
-      pull-requests: write
+      pull-requests: read
     steps:
       - name: Validate Pull Request
         uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
